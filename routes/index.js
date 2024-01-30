@@ -1,10 +1,11 @@
 const express = require('express')
-const { createPost , getPosts } = require('../controllers/postController')
+const { createPost , getAllPosts , getPost } = require('../controllers/postController')
 const router =  express.Router()
 
 
 router.post('/post-creat',createPost)
-router.post('/getPosts',getPosts)
+router.get('/getAllPosts',getAllPosts)
+router.get('/getPost/:id' , getPost)
 
 
 

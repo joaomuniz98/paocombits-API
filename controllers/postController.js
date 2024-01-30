@@ -48,7 +48,7 @@ async function createPost(req, res) {
 
 }
 
-async function getPosts(req,res) {
+async function getAllPosts(req,res) {
 
     try {
             
@@ -64,7 +64,27 @@ async function getPosts(req,res) {
     }
 }
 
+async function getPost(req,res) {
+
+    try {
+            
+        const id = req.params.id;
+
+        const query = await connection.query(
+              'SELECT * FROM posts WHERE id = ?',
+              [id]
+        );
+
+        res.status(201).send(JSON.stringify(query[0]))
+
+        
+    } catch (error) {
+        res.status(500).send('Error server:' , error.message)
+    }
+}
+
 module.exports = {
     createPost,
-    getPosts
+    getAllPosts,
+    getPost
 };
