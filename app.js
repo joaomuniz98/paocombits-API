@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const router = require('./routes/index')
 const cors = require('cors')
-const ScriptBancoInsert = require('../backend/config/scriptdatabase')
+const ScriptBancoInsert = require('./config/scriptdatabase')
 const port = 3000
 
 
@@ -14,10 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 async function iniciarCriacaoTabela() {
   
     try {
-       await  ScriptBancoInsert();
+        await  ScriptBancoInsert();
         console.log('Tabelas criadas com sucesso!');
         
-        // Inicia o seu aplicativo aqui
+   
     } catch (error) {
         console.error('Erro ao criar tabelas:', error);
         
