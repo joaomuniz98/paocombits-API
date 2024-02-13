@@ -1,9 +1,12 @@
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const router = require('./routes/index')
 const cors = require('cors')
 const ScriptBancoInsert = require('./config/scriptdatabase')
 const port = 3000
+
 
 
 
