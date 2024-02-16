@@ -29,7 +29,7 @@ async function createPost(req, res) {
         }
     
         const query = await connection.query(
-            'INSERT INTO posts (title, content, thumbnail, createdBy, createdOn) VALUES (?, ?, ?, ?)',
+            'INSERT INTO posts (title, content, thumbnail, createdBy) VALUES (?, ?, ?, ?)',
             [title, content, thumbnail, createdBy]
         );
     
