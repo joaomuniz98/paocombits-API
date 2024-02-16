@@ -2,7 +2,7 @@ const connection = require('../config/database');
 
 async function createPost(req, res) {
     try {
-        const { title, content, thumbnail, createdBy, createdOn } = req.body;
+        const { title, content, thumbnail, createdBy } = req.body;
     
         if (!title) {
             return res.status(405).send({retorno: "O título é obrigatório.",
@@ -28,15 +28,9 @@ async function createPost(req, res) {
         });
         }
     
-        if (!createdOn) {
-            return res.status(405).send({retorno: "O título é obrigatório.",
-            sucesso: 0
-        });
-        }
-    
         const query = await connection.query(
-            'INSERT INTO posts (title, content, thumbnail, createdBy, createdOn) VALUES (?, ?, ?, ?, ?)',
-            [title, content, thumbnail, createdBy, createdOn]
+            'INSERT INTO posts (title, content, thumbnail, createdBy, createdOn) VALUES (?, ?, ?, ?)',
+            [title, content, thumbnail, createdBy]
         );
     
         console.log(query);

@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS posts (
     content LONGTEXT,
     thumbnail VARCHAR(800),
     createdBy VARCHAR(255),
-    createdOn DATETIME
+    createdOn DATETIME DEFAULT CURRENT_TIMESTAMP
 );
