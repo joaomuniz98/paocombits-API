@@ -1,11 +1,12 @@
 const express = require('express')
-const { createPost , getAllPosts , getPost } = require('../controllers/postController')
+const { createPost , getAllPosts , getPost , removePost } = require('../controllers/postController')
 const router =  express.Router()
 
 
 router.post('/post-creat',createPost)
-router.get('/getAllPosts',getAllPosts)
-router.get('/getPost/:id' , getPost)
+router.get('/get-all-posts',getAllPosts)
+router.get('/get-post/:id' , getPost)
+router.delete('/remove-post/:id' , removePost)
 
 
 
